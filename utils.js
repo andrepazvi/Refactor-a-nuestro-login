@@ -19,11 +19,6 @@ export const cookieExtractor = req => {
     return token;
 }
 
-// export const bearerTokenExtractor = req => {
-//     return req.headers.authorization.split(' ')[1];
-// }
-
-//para los errores de token jwt
 export const passportCall = (strategy) => {
     return async(req, res, next) => {
         passport.authenticate(strategy, function(err, user, info) {
