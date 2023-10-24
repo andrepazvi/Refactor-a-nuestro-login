@@ -1,0 +1,10 @@
+<div>
+    <h1>Tu perfil (sin datos sensibles):</h1>
+    <p>Nombre completo: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Edad: {{user.age}}</p>
+    <p>Rol: {{user.role}}</p>
+    <form action="/api/sessions/logout" method="get">
+		<button>Salir</button>
+	</form>
+</div>
