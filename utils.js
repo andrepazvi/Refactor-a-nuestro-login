@@ -3,12 +3,8 @@ import { dirname } from "path";
 import bcrypt from 'bcrypt';
 import passport from "passport";
 
-
-// Esta función toma una contraseña y la hashea utilizando bcrypt. Devuelve el hash resultante.
 export const createHash = password => bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 
-// Esta función verifica si una contraseña coincide con el hash almacenado para un usuario.
-// Devuelve true si la contraseña es válida y false en caso contrario.
 export const isValidPassword = (user, password) => bcrypt.compareSync(password, user.password);
 
 const __filename = fileURLToPath(import.meta.url) 
