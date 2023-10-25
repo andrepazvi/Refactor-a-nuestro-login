@@ -2,7 +2,7 @@ import passport from "passport";
 import local from "passport-local";
 import jwt from 'passport-jwt';
 import GitHubStrategy from 'passport-github2';
-import { userModel } from "../dao/models/user.js";
+import { userModel } from "../dao/models/user.model.js";
 import {cookieExtractor , createHash , isValidPassword} from '../../utils.js'
 
 
@@ -35,7 +35,10 @@ const initializePassport = async () => {
                     email, 
                     age, 
                     password: createHash(password),
-                    role: 'User'
+                    role: rol,
+                    cart: await cartInUser.adCart(),
+                    avatar: req.filter.filename
+        
                 }
                 let result = await userModel.create(newUser);
                 return done(null,result); 

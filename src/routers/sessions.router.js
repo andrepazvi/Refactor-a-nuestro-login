@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { userModel } from '../dao/models/user.js'
+import { userModel } from '../dao/models/user.model.js'
 import { createHash, isValidPassword } from "../../utils.js";
 import { isValidObjectId } from "mongoose";
 import passport from "passport";

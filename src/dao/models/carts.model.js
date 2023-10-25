@@ -1,27 +1,27 @@
 import mongoose from 'mongoose';
 
-const cartCollection = 'Carts';
+const cartCollection = 'carts'; // Define el nombre de la colección
 
 const cartSchema = new mongoose.Schema({
-
-    products:{
-        type:[
+    products: {
+        type: [
             {
-                productID:{    
+                productID: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Products'
                 },
-                quantity:{
+                quantity: {
                     type: Number,
                     default: 1
                 }
             }
         ],
-        default:[] 
+        default: []
     }
 });
 
-cartSchema.pre('find', function(){
+cartSchema.pre('find', function () {
     this.populate('products.productID');
 });
-export const cartModel = mongoose.model(cartCollection, cartSchema)
+
+export const cartModel = mongoose.model(cartCollection, cartSchema);
