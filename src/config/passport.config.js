@@ -38,7 +38,6 @@ const initializePassport = async () => {
                     role: rol,
                     cart: await cartInUser.adCart(),
                     avatar: req.filter.filename
-        
                 }
                 let result = await userModel.create(newUser);
                 return done(null,result); 
